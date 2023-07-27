@@ -1,6 +1,9 @@
 .new-tweet{
   height: 150px;
   width: 100%;
+  border-right: none;
+  border-left: none;
+  border-top: none; 
 }
 
 button {
@@ -30,5 +33,5 @@ background-color: #f4f1ec;
   display: flex;
   font-family: bungee, cursive;
   flex-direction: row-reverse;
-  
+
 }

@@ -31,7 +31,6 @@ body {
   display: flex;
   width: 100%;
   align-items: center;
-  flex-wrap: nowrap;
   flex-direction: column;
   padding-left: 5%;
   padding-right: 5%;
