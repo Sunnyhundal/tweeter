@@ -35,3 +35,12 @@ background-color: #f4f1ec;
   flex-direction: row-reverse;
 
 }
+
+.new-tweet footer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+  
+}
