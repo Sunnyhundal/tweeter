@@ -8,41 +8,52 @@
 
 
 $(document).ready(function() {
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+// const data = [
+//   {
+//     "user": {
+//       "name": "Newton",
+//       "avatars": "https://i.imgur.com/73hZDYK.png"
+//       ,
+//       "handle": "@SirIsaac"
+//     },
+//     "content": {
+//       "text": "If I have seen further it is by standing on the shoulders of giants"
+//     },
+//     "created_at": 1461116232227
+//   },
+//   {
+//     "user": {
+//       "name": "Descartes",
+//       "avatars": "https://i.imgur.com/nlhLi3I.png",
+//       "handle": "@rd" },
+//     "content": {
+//       "text": "Je pense , donc je suis"
+//     },
+//     "created_at": 1461113959088
+//   }
+// ]
 
 const renderTweets = function(tweets) {
-// loops through tweets
-// calls createTweetElement for each tweet
-// takes return value and appends it to the tweets container
+$("#tweet-area").empty();
 for (const tweet of tweets) {
   const $tweet = createTweetElement(tweet);
-  $("#tweet-area").append($tweet);
-  return $tweet;
-
+  //renders tweets in the order of newest to oldest
+  $("#tweet-area").prepend($tweet);
 }
+};
+
+const loadtweets = function() {
+  $.ajax({
+    url: '/tweets',
+    method: "GET",
+    success: (tweets) => {
+      console.log(tweets);
+      renderTweets(tweets);
+    },
+    fail: (error) => {
+      console.log(error);
+    }
+  })
 
 };
 
@@ -58,7 +69,7 @@ let $tweet = $(`
   </header>
   <p class="tweet-text">${tweet.content.text}</p>
   <footer>
-    <div><h6 class="date">${tweet.created_at}</div>
+    <div ><h6 class="date">${timeago.format(tweet.created_at)}</div>
     
     <div class="buttons">
     <a href="" class="button-action">  
@@ -77,5 +88,29 @@ return $tweet;
 
 }
 
-renderTweets(data);
+//renderTweets(data);
+
+
+// disable the default behaviour of the form submission, and instead use jQuery to make a request to the server.
+const $form = $("#tweets-form");
+$form.on( "submit", function( event ) {
+  event.preventDefault();
+ const $input_text = $form.serialize();
+  $.ajax({
+    url: "/tweets",
+    method: "POST",
+    data: $input_text,
+  success: () => {
+    loadtweets();
+  },
+  fail: (error) => {
+    console.log(error);
+  }
+  })
+
 });
+
+loadtweets();
+
+});
+
