@@ -7,11 +7,11 @@ This repository is the starter code for the project: Students will fork and clon
 ## Preview
 **Desktop view:**
 
-!["Screenshot of Tweeter app in desktop view"](docs/Desktop-View.png)
+!["Screenshot of Tweeter app in desktop view"](docs/Desktop_View.png)
 
 **Mobile view:**
 
-!["Screenshot of tweets"](https://github.com/lighthouse-labs/tweeter/blob/master/docs/tweets.png)
+!["Screenshot of tweets"](docs/Mobile_View.png)
 
 
 
