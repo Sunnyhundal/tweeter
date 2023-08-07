@@ -1,3 +1,4 @@
+/* This code is for the header of the website. It is the first thing the user sees when they visit the website. It contains the logo, the navigation bar, and the search bar. */
 #user {
   display: flex;
   align-items: center;
