@@ -11,8 +11,14 @@ This repository is the starter code for the project: Students will fork and clon
 
 **Mobile view:**
 
-!["Screenshot of tweets"](docs/Mobile_View.png)
+!["Screenshot of Tweeter app in mobile view"](docs/Mobile_View.png)
 
+**Warnings for Character Limits**
+!["Screenshot of Tweeter app warning more than 140 characters"](docs/Tweet_Limit.png)
+
+**No More Empty Posts**
+
+!["Screenshot of Tweeter app warning blank post"](docs/noContent.png)
 
 
 
