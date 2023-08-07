@@ -47,7 +47,6 @@ const loadtweets = function() {
     url: '/tweets',
     method: "GET",
     success: (tweets) => {
-      console.log(tweets);
       renderTweets(tweets);
     },
     fail: (error) => {
@@ -93,10 +92,20 @@ return $tweet;
 
 // disable the default behaviour of the form submission, and instead use jQuery to make a request to the server.
 const $form = $("#tweets-form");
+
 $form.on( "submit", function( event ) {
   event.preventDefault();
  const $input_text = $form.serialize();
-  $.ajax({
+  
+ if ($("textarea").val().length === 0 || $("textarea").val() === null || $("textarea").val() === "") {
+  alert("Please write something." + "\n" + "Empty tweets are not allowed.");
+  return;
+ } if ($("textarea").val().length > 140) {
+    alert("Your tweet is too long! Tweeter only supports posts of 140 characters"+ "\n" + "Please remove, " + ($("textarea").val().length - 140) + " characters.");
+    return;
+   } else {
+
+ $.ajax({
     url: "/tweets",
     method: "POST",
     data: $input_text,
@@ -107,7 +116,7 @@ $form.on( "submit", function( event ) {
     console.log(error);
   }
   })
-
+   }
 });
 
 loadtweets();
