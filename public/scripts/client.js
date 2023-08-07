@@ -8,30 +8,16 @@
 
 
 $(document).ready(function() {
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png"
-//       ,
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": 1461116232227
-//   },
-//   {
-//     "user": {
-//       "name": "Descartes",
-//       "avatars": "https://i.imgur.com/nlhLi3I.png",
-//       "handle": "@rd" },
-//     "content": {
-//       "text": "Je pense , donc je suis"
-//     },
-//     "created_at": 1461113959088
-//   }
-// ]
+
+  // prevent XSS(cross site scripting) with Escaping function
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
+
+
 
 const renderTweets = function(tweets) {
 $("#tweet-area").empty();
@@ -66,7 +52,7 @@ let $tweet = $(`
     </div>
     <div class="author-tag">${tweet.user.handle}</div>
   </header>
-  <p class="tweet-text">${tweet.content.text}</p>
+  <p class="tweet-text">${escape(tweet.content.text)}</p>
   <footer>
     <div ><h6 class="date">${timeago.format(tweet.created_at)}</div>
     
@@ -92,7 +78,6 @@ return $tweet;
 
 // disable the default behaviour of the form submission, and instead use jQuery to make a request to the server.
 const $form = $("#tweets-form");
-
 $form.on( "submit", function( event ) {
   event.preventDefault();
  const $input_text = $form.serialize();
@@ -117,6 +102,9 @@ $form.on( "submit", function( event ) {
   }
   })
    }
+ // reset the counter to 140 and clear the textarea after submission
+  $("textarea").val("");
+  $(".counter").text(140);
 });
 
 loadtweets();
