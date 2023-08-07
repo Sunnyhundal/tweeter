@@ -14,8 +14,7 @@
    margin-top: 15rem;
  }
  main.container{
- 
-   width: 60%;
+   width: 90%;
    justify-content: flex-start;
    margin: 10rem;
    padding-top: 5rem;
@@ -25,7 +24,7 @@
  
  @media only screen and (max-width: 1024px) {
    main.container{
-     width: 80%;
+     width: 90%;
      margin: 5rem;
      margin-left: 5rem;
      margin-right: 5rem;

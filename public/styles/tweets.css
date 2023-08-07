@@ -27,7 +27,7 @@ article:hover {
   border: solid 5px;
   margin-top: 50px;
   padding: 10px;
-  inline-size: 700px;
+  inline-size: 90%;
   word-break: break-all;
 }
 
