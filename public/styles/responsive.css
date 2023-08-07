@@ -1,0 +1,39 @@
+/*Resposnsive layout styles*/
+
+ /* layout for desktop */
+ @media only screen and (min-width: 1024px) {
+  body {
+   display: flex;
+  }
+ #user{
+   display: flex;
+   width: 40%;
+   height: 35;
+   margin-left: 5rem;
+   margin-right: 5rem;
+   margin-top: 15rem;
+ }
+ .container{
+ 
+   width: 60%;
+   justify-content: flex-start;
+   margin: 10rem;
+   padding-top: 5rem;
+   padding-right: 5rem;
+ }
+ }
+ 
+ @media only screen and (max-width: 1024px) {
+   main.container{
+     width: 80%;
+     
+     margin: 5rem;
+     margin-left: 5rem;
+     margin-right: 5rem;
+   }
+   nav {
+background-color: rgba(240, 248, 255, 0);
+ }
+ 
+ 
+}

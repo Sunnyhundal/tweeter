@@ -8,6 +8,25 @@
 
 
 $(document).ready(function() {
+  $('#error-CharOver').hide();
+  $("#error-InvalidChar").hide();
+
+//remove header on scroll
+$(window).scroll(function() {
+  const scrollDuration = 450;
+  if ($(window).scrollTop() > scrollDuration) 
+  {
+      $('nav').fadeOut();
+  } 
+  else
+  {
+      $('nav').fadeIn();
+  }
+});
+
+
+
+
 
   // prevent XSS(cross site scripting) with Escaping function
   const escape = function (str) {
@@ -83,10 +102,12 @@ $form.on( "submit", function( event ) {
  const $input_text = $form.serialize();
   
  if ($("textarea").val().length === 0 || $("textarea").val() === null || $("textarea").val() === "") {
-  alert("Please write something." + "\n" + "Empty tweets are not allowed.");
+  // alert("Please write something." + "\n" + "Empty tweets are not allowed.");
+  $("#error-InvalidChar").slideDown("slow");
   return;
  } if ($("textarea").val().length > 140) {
-    alert("Your tweet is too long! Tweeter only supports posts of 140 characters"+ "\n" + "Please remove, " + ($("textarea").val().length - 140) + " characters.");
+    // alert("Your tweet is too long! Tweeter only supports posts of 140 characters"+ "\n" + "Please remove, " + ($("textarea").val().length - 140) + " characters.");
+    $("#error-CharOver").slideDown("slow");
     return;
    } else {
 
@@ -105,6 +126,8 @@ $form.on( "submit", function( event ) {
  // reset the counter to 140 and clear the textarea after submission
   $("textarea").val("");
   $(".counter").text(140);
+  $('#error-CharOver').slideUp("slow");
+  $("#error-InvalidChar").slideUp("slow");
 });
 
 loadtweets();

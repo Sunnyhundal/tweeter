@@ -27,11 +27,12 @@ body {
   font-family: 'Source Sans 3', sans-serif;
  }
 
- main.container{
+ /* main.container{
   display: flex;
   width: 100%;
   align-items: center;
   flex-direction: column;
   padding-left: 5%;
   padding-right: 5%;
- }
+ } */
+
