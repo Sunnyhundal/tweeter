@@ -5,8 +5,12 @@ Tweeter is a simple, single-page Twitter clone.
 This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
 
 ## Preview
+**Desktop view:**
 
-!["Screenshot of tweet compose box"](https://github.com/lighthouse-labs/tweeter/blob/master/docs/tweet-box.png)
+!["Screenshot of Tweeter app in desktop view"](docs/Desktop-View.png)
+
+**Mobile view:**
+
 !["Screenshot of tweets"](https://github.com/lighthouse-labs/tweeter/blob/master/docs/tweets.png)
 
 
@@ -25,5 +29,7 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- Body-parser: 1.15.2
+- Chance: 1.0.2
 
 
